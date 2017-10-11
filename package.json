@@ -3,9 +3,13 @@
   "scripts": {
     "build": "pulp build --to dist/app.js",
     "watch": "pulp -w build --to dist/app.js",
-    "watch-fast": "webpack --entry ./entry.js --output-filename dist/app.js --progress --watch"
+    "watch-fast": "webpack --entry ./entry.js --output-filename dist/app.js --progress --watch",
+    "browse": "browser-sync start --server --ss 'dist' --files 'dist/**/*'",
+    "dev": "nf start"
   },
   "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "foreman": "^2.0.0",
     "webpack": "^3.6.0"
   }
 }
