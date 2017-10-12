@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "purescript-halogen-template",
+  "name": "try-halogen",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -11,6 +11,10 @@
   "dependencies": {
     "purescript-console": "^3.0.0",
     "purescript-halogen": "^2.0.0",
-    "purescript-random": "^3.0.0"
+    "purescript-random": "^3.0.0",
+    "purescript-foreign-generic": "^5.0.0"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^3.0.0"
   }
 }
