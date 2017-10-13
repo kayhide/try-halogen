@@ -19,6 +19,8 @@ scan conf opts = makeAff callback
 type AwsConfig =
   { region :: String
   , endpoint :: String
+  , accessKeyId :: String
+  , secretAccessKey :: String
   }
 
 type ScanOptions =
