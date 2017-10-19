@@ -3,7 +3,7 @@ module Main where
 import Prelude
 
 import Aws.Dynamo (DYNAMO)
-import Component.DynamoUI (Query(..), ui)
+import Component.DynamoUI as DynamoUI
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Random (RANDOM, random)
 import Halogen (action)
@@ -14,4 +14,6 @@ main :: Eff (HA.HalogenEffects (dynamo :: DYNAMO)) Unit
 main = HA.runHalogenAff do
   body <- HA.awaitBody
   io <- runUI ui unit body
-  io.query $ action Scan
+  io.query $ action DynamoUI.Scan
+  where
+    ui = DynamoUI.ui "agrishot-test-photos"

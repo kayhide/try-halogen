@@ -23,8 +23,13 @@ type State = Array Photo
 
 data Query a = Scan a
 
-ui :: forall eff. H.Component HH.HTML Query Unit Void (Aff (dynamo :: DYNAMO | eff))
-ui =
+
+type TableName = String
+
+ui :: forall eff.
+      TableName ->
+      H.Component HH.HTML Query Unit Void (Aff (dynamo :: DYNAMO | eff))
+ui tableName =
   H.component
     { initialState: const initialState
     , render
@@ -62,4 +67,4 @@ ui =
     pure next
     where
       conf = { region: "local", endpoint: "http://localhost:4569", accessKeyId: "xxxx", secretAccessKey: "xxxx" }
-      opts = { "TableName": "botobbot-test-photos" }
+      opts = { "TableName": tableName }
